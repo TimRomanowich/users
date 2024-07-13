@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.contrib import messages
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.decorators import login_required
 from django.views import View
 
 #Using built-in Django Views for Registration and Login
@@ -60,3 +61,8 @@ class CustomLoginView(LoginView):
 
         # else browser session will be as long as the session cookie time "SESSION_COOKIE_AGE" defined in settings.py
         return super(CustomLoginView, self).form_valid(form)
+
+# Limit access to logged in users
+@login_required
+def profile(request):
+    return render(request, 'users/profile.html')

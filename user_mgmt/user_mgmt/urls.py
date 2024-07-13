@@ -16,9 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    #Empty string b/c users app home page is home page for whole site
+    # Empty string b/c users app home page is home page for whole site
     path('', include('users.urls')),
+    # Allow login through socials
+     re_path(r'^oauth/', include('social_django.urls', namespace='social')),
 ]

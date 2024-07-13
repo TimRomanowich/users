@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    #Empty string b/c users app home page is home page for whole site
     path('', include('users.urls')),
 ]

@@ -122,3 +122,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Added session cookie age to remember user logins
+SESSION_COOKIE_AGE = 60 * 60 * 24 * 30
+
+# Redirect user to home page after successful login
+LOGIN_REDIRECT_URL = '/'
+# Changed from default of /accounts/login to /login
+LOGIN_URL = 'login'
